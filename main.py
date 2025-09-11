@@ -1,11 +1,11 @@
-from fastapi import FastAPI
 
-app = FastAPI()
+def test_passando():
+    assert True
 
-@app.get("/")
-def home():
-    return {"mensagem": "API funcionando no Docker!"}
+def test_read_root():
+    response = read_root()
+    assert response == {"hello": "world"}
 
 
 def read_root():
-    return {"mensagem": "API funcionando!"}
+    return {"hello": "world"}

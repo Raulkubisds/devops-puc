@@ -1,8 +1,8 @@
-from  main import read_root
+from main import read_root
 
 def test_passando():
     assert True
 
-def test_read_root ():
-    responses = read_root()
-    assert responses == {"hello": "world"}
+def test_read_root():
+    response = read_root()
+    assert response == {"hello": "world"}
