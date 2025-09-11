@@ -1,44 +1,24 @@
-name: Python + Docker
+name: Python application
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Run tests
-        run: pytest
-
-  docker:
-    runs-on: ubuntu-latest
-    needs: test   # só roda o Docker se os testes passarem
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Build Docker image
-        run: docker build -t testandodocker .
-
-      - name: Run container
-        run: docker run -d -p 8000:80 --name test_container testandodocker
-
-      - name: Check container logs
-        run: docker logs test_container
-
-
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+        pip install -r requirements.txt
+    - name: Test with pytest
+      run: |
+        pytest
