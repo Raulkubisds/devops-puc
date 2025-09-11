@@ -1,6 +1,6 @@
 # test_main.py
 
-from .main import read_root
+from main import read_root
 
 def test_passando():
     assert True
