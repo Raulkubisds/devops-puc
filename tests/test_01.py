@@ -1,5 +1,3 @@
-# test_main.py
-
 from main import read_root
 
 def test_passando():
