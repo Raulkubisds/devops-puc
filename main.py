@@ -1,10 +1,7 @@
-"""Módulo principal do projeto devops-puc."""
+from fastapi import FastAPI
 
-def read_root():
-    """Retorna uma saudação simples."""
-    return {"hello": "world"}
+app = FastAPI()
 
-
-def outra_funcao():
-    """Exemplo de função extra só pra teste."""
-    return True
+@app.get("/")
+def home():
+    return {"mensagem": "API funcionando no Docker!"}
