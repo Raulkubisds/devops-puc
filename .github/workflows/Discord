@@ -15,4 +15,4 @@ jobs:
         uses: tsickert/discord-webhook@v7.0.0
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-          content: "🚀 Novo commit ou PR criado no repositório!"
+          content: " Novo commit ou PR criado no repositório!"
